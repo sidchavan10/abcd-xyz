@@ -245,6 +245,7 @@ header{
             display: block;
             padding: 10px 15px;
             background: $primaryColor;
+            border-bottom: 4px solid $secondaryColor;
         }
 
         @mixin btnAtive{
@@ -622,6 +623,10 @@ header{
                         width: 25%;
                         padding: 0 5px;
                         margin-bottom: 10px;
+                    }
+
+                    @media only screen and (max-width: 767px){
+                        width: 50%;
                     }
 
                     a{
@@ -1359,6 +1364,26 @@ header{
 
         &::before{
             transform: rotate(45deg);
+        }
+    }
+
+    &.inner_hero_banner{
+        .hero_slider_box{
+            .hero_content_box{
+                top: 50%;
+                transform: translateY(-50%);
+
+                .hero_content{
+                    h2{
+                        font-size: 45px;
+                        color: $whiteColor;
+
+                        @media only screen and (max-width: 1600px){
+                            font-size: 32px;
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -2522,6 +2547,79 @@ header{
             width: 100%;
         }
     }
+}
+
+/************* Saving Account *****************/
+
+.acc_type_btns{
+
+    .acc_type_btns_box{
+        position: relative;
+        text-align: center;
+        background: $whiteColor;
+        padding: 60px 80px;
+        border-radius: 20px;
+        margin-top: -55px;
+        margin-bottom: 30px;
+
+        a{
+            position: relative;
+            display: block;
+            color: $blackColor;
+
+            &:after{
+                content: "";
+                position: absolute;
+                width: 50px;
+                height: 4px;
+                border-radius: 10px;
+                background: $primaryColor;
+                left: 0;
+                right: 0;
+                bottom: -40px;
+                opacity: 0;
+                margin: auto;
+                @include transition();
+            }
+
+            span{
+                display: block;
+                font-size: 25px;
+                font-weight: 500;
+
+                &:last-child{
+                    margin-top: 15px;
+                }
+
+                img{
+                    &:last-child{
+                        display: none;
+                    }
+                }
+            }
+
+            &:hover{
+                color: $primaryColor;
+
+                &::after{
+                    bottom: -20px;
+                    opacity: 1;
+                }
+
+                span{
+                    img{
+                        &:first-child{
+                            display: none;
+                        }
+                        &:last-child{
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 /************* Footer ***************/
